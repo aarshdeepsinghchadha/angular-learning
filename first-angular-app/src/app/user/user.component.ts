@@ -6,8 +6,16 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
   selector: 'app-user',
   imports: [],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
 })
 export class UserComponent {
   selectedUser = DUMMY_USERS[randomIndex];
+
+  get imagePath() {
+    return 'users/' + this.selectedUser.avatar;
+  }
+
+  onSelectedUser() {
+    this.selectedUser = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
+  }
 }
